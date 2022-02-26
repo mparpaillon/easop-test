@@ -1,6 +1,7 @@
 const DRUG_MAGIC_PILL = "Magic Pill";
 const DRUG_HERBAL_TEA = "Herbal Tea";
 const DRUG_FERVEX = "Fervex";
+const DRUG_DAFALGAN = "Dafalgan";
 const MIN_BENEFIT = 0;
 const MAX_BENEFIT = 50;
 
@@ -38,6 +39,10 @@ export class Drug {
 
       if (this.isExpired) return 2;
       return 1;
+    }
+
+    if (this.name === DRUG_DAFALGAN) {
+      return -2;
     }
 
     if (this.isExpired) return -2;
