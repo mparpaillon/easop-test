@@ -89,6 +89,18 @@ describe("Pharmacy", () => {
     });
   });
 
+  describe("Dafalgan", () => {
+    it("should decrease twice as fast", () => {
+      expect(
+        new Pharmacy([new Drug("Dafalgan", 2, 4)]).updateBenefitValue()
+      ).toEqual([new Drug("Dafalgan", 1, 2)]);
+
+      expect(
+        new Pharmacy([new Drug("Dafalgan", 0, 8)]).updateBenefitValue()
+      ).toEqual([new Drug("Dafalgan", -1, 6)]);
+    });
+  });
+
   describe("All drugs", () => {
     it("should never have benefit value over 50", () => {
       expect(
